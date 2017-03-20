@@ -1,9 +1,12 @@
 
-void lambda_capture() {
-    int x = 4;
-    auto y = [&r = x, x = x + 1]() -> int {
-        r += 2;
-        return x + 2;
-    }();
+#include <experimental/tuple>
+
+template<class F, class...Args>
+auto forward_capture(F &&f, Args &&...args) {
+    return [f = std::forward<F>(f),
+            tup = std::make_tuple(std::forward<Args>(args)...)]
+    {
+        return std::experimental::apply(f, tup);
+    };
 }
 
