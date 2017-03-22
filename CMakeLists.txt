@@ -12,3 +12,6 @@ add_subdirectory(make_auto)
 add_subdirectory(precompiled_header)
 add_subdirectory(disassembly_debug)
 add_subdirectory(catch_test)
+
+# Uncomment this to link the C++14 test lib in
+# target_link_libraries( CLion2017_1Demo CPP14_support )
