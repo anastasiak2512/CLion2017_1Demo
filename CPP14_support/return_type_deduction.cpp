@@ -2,6 +2,9 @@
 #include <cassert>
 #include <iostream>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++1z-extensions"
+
 auto prev_vec() {
     std::vector<double> vec;
 
@@ -14,6 +17,7 @@ void cur_vec() {
 
     v.push_back(2017.1);
 }
+
 
 auto returnsInt(int& i)
 {
@@ -52,8 +56,8 @@ void testReturnTypeDeduction() {
     auto t = returnsT<int>();
     auto t2 = returnsT2<int>();
 
-    static_assert( std::is_same<decltype(t), int>::value );
-    static_assert( std::is_same<decltype(t2), int>::value );
+    static_assert(std::is_same<decltype(t), int>::value);
+    static_assert(std::is_same<decltype(t2), int>::value);
 
     i = 42;
     assert(justAnInt == 7);
@@ -66,3 +70,9 @@ void testReturnTypeDeduction() {
 
     std::cout << "... all good" << std::endl;
 }
+
+int main() {
+    testReturnTypeDeduction();
+}
+
+#pragma clang diagnostic pop
