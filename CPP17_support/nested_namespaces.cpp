@@ -5,9 +5,7 @@ namespace First::Second {
     typedef int T;
 
     struct data {
-        T bar() {
-            return 0;
-        }
+        T bar() { return 0; }
     };
 }
 
