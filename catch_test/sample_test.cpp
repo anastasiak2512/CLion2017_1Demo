@@ -3,12 +3,10 @@
 #include "sample_lib.h"
 
 TEST_CASE( "Life, the universe and everything", "[theAnswer]" ) {
-    SECTION("Just the Answer") {
-        CHECK(theAnswer() == 42);
+    SECTION("In base 10") {
+        CHECK(answer<int> == 54);
     }
-
-    SECTION("Increase the Answer") {
-        CHECK(increase(1) == 43);
+    SECTION("In base 13") {
+        CHECK(answer<Base<13>> == "42");
     }
 }
-
