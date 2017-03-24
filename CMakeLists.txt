@@ -8,6 +8,7 @@ add_executable(CLion2017_1Demo ${SOURCE_FILES})
 
 add_subdirectory(CPP14_support)
 add_subdirectory(CPP17_support)
+add_subdirectory(CPP_improvements)
 add_subdirectory(make_auto)
 add_subdirectory(precompiled_header)
 add_subdirectory(disassembly_debug)
